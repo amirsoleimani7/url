@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>url shortene</title>
+<style>
+    body {text-align: center;}
+
+</style>
+
+
 </head>
 <body>
-    <h1>this is the url page</h1>
+    <h2>Url shortener</h2>
+    <form action="." method="post">
+        {% csrf_token %}
+        <input type="text" name="long_url">
+        <input type="submit" >
+    </form>
+    {% if short_url %}
+        <a href="{{short_url}}" target="_blank" rel="noopener noreferrer nofollow">the short link</a>
+    {% else %}
+        <p>some error accured</p>
+    {% endif %}
 </body>
 
 </html>
